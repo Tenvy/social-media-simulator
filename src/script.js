@@ -38,7 +38,7 @@ class MediaPost {
                 description: "OMG! 🥞🌸 Just had the most amazing pancakes ever! (•‿•)⁠ These fluffy delights are pure happiness on a plate! (◑‿◐)✨ Topped with fresh fruits, drizzled with maple syrup, and dusted with powdered sugar, they were a taste sensation! (-‿◦☀)✨ I can't even describe how heavenly they were! ಥ‿ಥ💖 Who else loves pancakes like this? (づ ◕‿◕ )づ🌈",
             },
         ];
-        this.postIdCounter = 5;
+        this.postIdCounter = 6;
     }
     addPost(newPost) {
         const post = Object.assign({ id: this.postIdCounter++ }, newPost);

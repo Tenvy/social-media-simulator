@@ -45,7 +45,7 @@ class MediaPost {
 		},
   ];
 
-  private postIdCounter: number = 5;
+  private postIdCounter: number = 6;
 
   public addPost(newPost: Omit<Post , "id">): void {
     const post: Post = {
