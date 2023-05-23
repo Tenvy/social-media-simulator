@@ -94,6 +94,20 @@ p{
     padding-bottom: 16px;
 }
 
+.delete-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 1px solid var(--third-color);
+    height: 28px;
+    padding: 0 12px 0 12px;
+    letter-spacing: .25px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    color: red;
+}
+
 input[type=file]{
     padding: 5px;
     border: solid 1px var(--third-color);
@@ -174,6 +188,14 @@ textarea {
 }
 
 .head-post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+
+.head-post > div{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -270,6 +292,20 @@ textarea {
     }
     .post-container{
         width: 46%;
+    }
+
+    .delete-button {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: 1px solid lighten(gray, 24%);
+        height: 48px;
+        padding: 0 16px 0 16px;
+        letter-spacing: .25px;
+        border-radius: 24px;
+        cursor: pointer;
+        font-size: 16px;
+        color: red;
     }
 
     .footer{
