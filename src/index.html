@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css"/>
+
+    <title>Social Media Simulator</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="theme create-post-button">
+            <img class="theme-icon" src="./assets/plus.svg" alt="">
+            <p>Create a post!</p>
+        </div>
+        <div class="theme dark-toggle">
+            <img class="theme-icon" src="./assets/moon.svg" alt="">
+        </div>
+    </div>
+    <div class="modal-container">
+        <div class="modal">
+            <div>
+                <h1>CREATE A POST</h1>
+            </div>
+            <form id="post_form">
+                <div class="input-form">
+                    <label>Your profile picture</label>
+                    <input type="file" name="" id="profile_input" accept="image/png, image/jpg, image/jpeg">
+                </div>
+                <div class="input-form">
+                    <label>Username</label>
+                    <input type="text" id="username_input">
+                </div>
+                <div class="input-form">
+                    <label>what's your post gonna be?</label>
+                    <input type="file" name="" id="post_input" accept="image/png, image/jpg, image/jpeg">
+                </div>
+                <div class="input-form">
+                    <label>description</label>
+                    <textarea name="" id="description_input" cols="5" rows="5"></textarea>
+                </div>
+                <input type="submit" value="POST">
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="theme create-post-button">
+            <img class="theme-icon" src="./assets/plus.svg" width="10" height="50" alt="">
+        </div>
+        <div class="theme">
+            <img class="theme-icon" src="./assets/moon.svg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="post-container">
+            <div class="head-post-container">
+                <h1>Social Media SIMULATOR</h1>
+                <p>a website that simulates the look of social media!</p>
+            </div>
+            <div class="post">
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</html>
