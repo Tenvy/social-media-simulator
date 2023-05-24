@@ -5,13 +5,15 @@
 :root{
     --primary-color: #084cdf;
     --secondary-color: #ffffff;
-    --third-color: #000000
+    --third-color: #000000;
+    --timestamp-color: #656565;
 }
 
 .dark-theme{
     --primary-color: #2196f3;
     --secondary-color: #000000;
     --third-color: #ffffff;
+    --timestamp-color: #858585;
 }
 
 body{
@@ -243,6 +245,11 @@ textarea {
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
+}
+
+.timestamp{
+    padding-top: 10px;
+    color: var(--timestamp-color);
 }
 
 /*  Media Queries */

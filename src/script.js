@@ -1,6 +1,11 @@
 "use strict";
 class MediaPost {
     constructor() {
+        this.addMinutes = (date, minutes) => {
+            const newDate = new Date(date);
+            newDate.setMinutes(newDate.getMinutes() + minutes);
+            return newDate;
+        };
         this.posts = [
             {
                 id: 5,
@@ -8,6 +13,7 @@ class MediaPost {
                 username: "sisca024",
                 post_image: "./assets/wallpaper.png",
                 description: "Absolutely breathtaking! 😍🌅 Sharing a magical moment with my love on the edge of a cliff, overlooking the mesmerizing sunset. (•‿•)💑 The golden hues of the sky blend perfectly with the warmth of our embrace, creating a picture-perfect memory. (◑‿◐)✨",
+                timestamp: this.addMinutes(new Date(), -70)
             },
             {
                 id: 4,
@@ -15,6 +21,7 @@ class MediaPost {
                 username: "raya_re",
                 post_image: "./assets/spaghetti.webp",
                 description: "If you had one shot or one opportunity to seize everything you ever wanted, one moment would you captured it? or just let it slip",
+                timestamp: this.addMinutes(new Date(), -60)
             },
             {
                 id: 3,
@@ -22,6 +29,7 @@ class MediaPost {
                 username: " abduh23",
                 post_image: "./assets/berserk.jpg",
                 description: "Jalani hari dengan sepenuh hati, Jangan sesali apa yang sudah terjadi.",
+                timestamp: this.addMinutes(new Date(), -50)
             },
             {
                 id: 2,
@@ -29,6 +37,7 @@ class MediaPost {
                 username: "tenvy.official",
                 post_image: "./assets/profile.webp",
                 description: "Dengan kekasih tercinta!, aku mencintainya lebih dari dirinya mencintaiku <3. namanya selalu ada di hatiku💖, mengingatnya selalu membuat",
+                timestamp: this.addMinutes(new Date(), -30)
             },
             {
                 id: 1,
@@ -36,12 +45,14 @@ class MediaPost {
                 username: "ai_hoshino",
                 post_image: "./assets/post.jpg",
                 description: "OMG! 🥞🌸 Just had the most amazing pancakes ever! (•‿•)⁠ These fluffy delights are pure happiness on a plate! (◑‿◐)✨ Topped with fresh fruits, drizzled with maple syrup, and dusted with powdered sugar, they were a taste sensation! (-‿◦☀)✨ I can't even describe how heavenly they were! ಥ‿ಥ💖 Who else loves pancakes like this? (づ ◕‿◕ )づ🌈",
+                timestamp: this.addMinutes(new Date(), -10)
             },
         ];
         this.postIdCounter = 6;
     }
     addPost(newPost) {
         const post = Object.assign({ id: this.postIdCounter++ }, newPost);
+        post.timestamp = new Date();
         this.posts.push(post);
     }
     deletePost(selectedPost) {
@@ -57,6 +68,29 @@ class MediaPost {
 const media = new MediaPost();
 const modal = document.querySelector(".modal-container");
 const postContainer = document.querySelector(".post");
+const formatTimestamp = (timestamp) => {
+    const now = new Date();
+    const diff = Math.abs(now.getTime() - timestamp.getTime());
+    const minute = 60 * 1000;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+    if (diff < minute) {
+        const seconds = Math.floor(diff / 1000);
+        return `${seconds} seconds ago`;
+    }
+    else if (diff < hour) {
+        const minutes = Math.floor(diff / minute);
+        return `${minutes} minutes ago`;
+    }
+    else if (diff < day) {
+        const hours = Math.floor(diff / hour);
+        return `${hours} hours ago`;
+    }
+    else {
+        const days = Math.floor(diff / day);
+        return `${days} days ago`;
+    }
+};
 const loadPosts = () => {
     const html = media.getPosts().map((post) => `
       <div class="post-list">
@@ -74,6 +108,7 @@ const loadPosts = () => {
           <div class="description">
             <h2>from ${post.username}</h2>
             <p>${post.description}</p>
+            <p class="timestamp">${formatTimestamp(post.timestamp)}</p>
           </div>
         </div>
       </div>
@@ -111,6 +146,7 @@ form.addEventListener("submit", (e) => {
                 username: usernameInput,
                 post_image: postImageUrl,
                 description: descriptionInput,
+                timestamp: new Date()
             });
             loadPosts();
             form.reset();
